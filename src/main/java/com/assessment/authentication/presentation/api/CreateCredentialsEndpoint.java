@@ -22,7 +22,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
  */
 @RestController
 @Slf4j
-@RequestMapping("/")
+@RequestMapping("/api")
 public class CreateCredentialsEndpoint {
 
     @Autowired

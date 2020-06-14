@@ -19,7 +19,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
  * API to authenticate user credentials
  */
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class VerifyCredentialsEndpoint {
 
     @Autowired
