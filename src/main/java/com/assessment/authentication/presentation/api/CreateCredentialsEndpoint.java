@@ -36,11 +36,6 @@ public class CreateCredentialsEndpoint {
      */
     @PostMapping(value = "/create", consumes = APPLICATION_JSON_VALUE)
     public ResponseEntity createCredentials(@RequestBody AccountDetails account) {
-        // verify if account exists in the systemaz
-        boolean accountExist = authenticationService.verifyIfAccountExists(account.getAccountNumber());
-        if (!accountExist) {
-            throw new NoAccountAvailableException("No Account found for the given Account number");
-        }
         // verify if the username is not null or empty
         if (account.getUserName() == null || account.getUserName().isEmpty()) {
             throw new InvalidInputException("Invalid UserName. Please send the valid UserName");
@@ -53,6 +48,11 @@ public class CreateCredentialsEndpoint {
         // verify if the password is minimum 6 digits length
         if (account.getPassword() == null || !(isValidPassword().apply(account.getPassword()).test(6))) {
             throw new InvalidInputException("The password should have minimum length of 6");
+        }
+        // verify if account exists in the systemaz
+        boolean accountExist = authenticationService.verifyIfAccountExists(account.getAccountNumber());
+        if (!accountExist) {
+            throw new NoAccountAvailableException("No Account found for the given Account number");
         }
         authenticationService.create(account.getUserName(), account.getPassword());
         return ResponseEntity.status(HttpStatus.CREATED).build();

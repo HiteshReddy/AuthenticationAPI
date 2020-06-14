@@ -58,6 +58,7 @@ public class CreateCredentialsEndpointTest {
 
     @Test
     public void testCreateCredentialsWithInvalidAccount() throws Exception {
+        given(authenticationService.verifyIfUserNameExists(any(String.class))).willReturn(false);
         given(authenticationService.verifyIfAccountExists(any(String.class))).willReturn(false);
 
         mockMvc.perform(post(CREATE_ENDPOINT)
@@ -71,7 +72,6 @@ public class CreateCredentialsEndpointTest {
 
     @Test
     public void testCreateCredentialsWithDuplicateUserName() throws Exception {
-        given(authenticationService.verifyIfAccountExists(any(String.class))).willReturn(true);
         given(authenticationService.verifyIfUserNameExists(any(String.class))).willReturn(true);
 
         mockMvc.perform(post(CREATE_ENDPOINT)
@@ -85,7 +85,6 @@ public class CreateCredentialsEndpointTest {
 
     @Test
     public void testCreateCredentialsWithInvalidPasswordFormat() throws Exception {
-        given(authenticationService.verifyIfAccountExists(any(String.class))).willReturn(true);
         given(authenticationService.verifyIfUserNameExists(any(String.class))).willReturn(false);
 
         mockMvc.perform(post(CREATE_ENDPOINT)
