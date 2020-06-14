@@ -71,8 +71,8 @@ error message and status code in case of authentication failure
 
 > /create
 
-`curl --key ./client.key --cert ./client.pem:changeit --cacert ca.pem -H "content-type:Application/Json" --data '{"accountNumber":"77853449","userName":"hitesh","password":"1234567"}' -v https://localhost:8084/create`
+`curl --key ./client.key --cert ./client.pem:changeit --cacert ca.pem -H "content-type:Application/Json" --data '{"accountNumber":"77853449","userName":"nathanlouis","password":"1234567"}' -v https://localhost:8084/create`
 
 > /authenticate
 
-`curl --key ./client.key --cert ./client.pem:changeit --cacert ca.pem -H "content-type:Application/Json" --data '{"userName":"hitesh","password":"1234567"}' -v https://localhost:8084/authenticate` 
+`curl --key ./client.key --cert ./client.pem:changeit --cacert ca.pem -H "content-type:Application/Json" --data '{"userName":"nathanlouis","password":"1234567"}' -v https://localhost:8084/authenticate` 
