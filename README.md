@@ -3,7 +3,7 @@ Authentication API provides the following capabilities
 1. create/register user login credentials 
 2. return JWT Token on successful Authentication
 
-##End-points
+## End-points
 
 - /create 
 
@@ -27,13 +27,13 @@ sample request body
 
 ### How to start the App
 
-####pre-requisite:
+#### pre-requisite:
 - The Accounts API should be running and available at port `8444`
 - set the MAVEN_HOME env variable
 - set the JAVA_HOME env variable
 
 
-####Invoke 
+#### Invoke 
 
 `./startApp.sh`
 
