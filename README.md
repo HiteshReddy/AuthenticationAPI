@@ -46,6 +46,8 @@ The application is enabled with mutual TLS.
 
 ### How to test the App
 
+Navigate to the client directory
+
 > /create end-point
 
 Invoke the `curl_Create.sh`, 
